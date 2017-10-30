@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for obj in object_list %}
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="thumbnail">
+			<h3>{{ obj.user.username }}</h3> 
+			<h4>{{ obj.name }}</h4> 
+			<p>
+				{{obj.restaurant.title }} | {{obj.restaurant.location}} | {{obj.restaurant.category}}
+			</p>
+			<p>
+				<ul>				
+					<li style='margin-bottom:15px'><b>{{item.name}}</b><br/>
+						{% for ing in obj.get_contents %}
+							<a href="{{request.path}}?q={{ing}}"><span class="badge badge-default">{{ing}}</span></a>
+						{% endfor %}
+					</li>				
+				</ul>
+			</p>
+		</div>
+	</div>
+</div>
+
+{% endfor %}
+
+
+{% endblock %}

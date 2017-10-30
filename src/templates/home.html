@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block head_title %}Welcome || {{block.super}}{% endblock head_title %}
+
+{% block content %}
+
+
+	{% if bool_item %}
+		<p>True</p>
+	{% endif %}
+
+<p>
+	{% for some_item in some_list%}
+		{%  if some_item|divisibleby:"2" %}
+			Even Number
+		{% endif %}
+		{{some_item}}
+		
+	{% endfor %}
+</p>
+
+{{block.super}}
+
+{% endblock content %}
